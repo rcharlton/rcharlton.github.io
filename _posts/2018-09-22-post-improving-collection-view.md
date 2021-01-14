@@ -3,7 +3,7 @@ title: "Improving Collection View Data Sources"
 date: 2018-09-22T20:10:00+0000
 header:
   teaser: /assets/images/posts/priscilla-fong-83012-unsplash.jpg
-  overlay_image: /assets/images/posts/priscilla-fong-83012-unsplash.jpg
+  overlay_image: /assets/images/posts/post-improving-collection-view/priscilla-fong-83012-unsplash.jpg
   overlay_filter: 0.3
   caption: "Photo by Priscilla Fong on [**Unsplash**](https://unsplash.com)"
 categories:
@@ -13,6 +13,7 @@ tags:
   - iOS
   - tvOS
 classes: wide
+excerpt: "Syntactic Sugar"
 ---
 Since `UICollectionView` arrived back in iOS 6.0 it’s become the workhorse of UI development. It can be seen everywhere rendering the dynamic content of the interweb’s feeds, lists and stories. Although capable the API suffers from that particular clunkiness that only an Objective-C Cocoa API can give 😆. This post presents a little syntactic sugar to improve the readability of our code and eliminate stupid programming mistakes.
 
@@ -23,14 +24,15 @@ collectionView.register(MyCollectionViewCell.self,
 ```
 
 ... and then consume those cells in the following data-source method:
-```
+```swift
 func collectionView(
     _ collectionView: UICollectionView, 
     cellForItemAt indexPath: IndexPath
 ) -> UICollectionViewCell {
-
-	guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyCollectionViewCellIdentifier", 
-	                                                    for: indexPath) as? MyCollectionViewCell else {
+    guard let cell = collectionView.dequeueReusableCell(
+        withReuseIdentifier: "MyCollectionViewCellIdentifier", 
+        for: indexPath
+    ) as? MyCollectionViewCell else {
 	    fatalError("Gosh, this is embarressing 😭")
 	}
 
@@ -46,15 +48,14 @@ Looking at `func collectionView(_ , cellForItemAt indexPath:)` we see that we do
 
 The path to improving this situation is by more formally expressing the relationship of the cell type with its reuse identifier.
 
-```
+```swift
 protocol Reusable {
     static var reuseIdentifier: String { get }
 }
 ```
 
-```
+```swift
 class MyCollectionViewCell: UICollectionViewCell, Reusable {
-
     func configure(with data: MyData) {
         ...
     }
@@ -62,9 +63,8 @@ class MyCollectionViewCell: UICollectionViewCell, Reusable {
 ```
 With this in place we can extend `UICollectionView` and eliminate the manual specification of the reuse identifier for all `Reusable` conforming types:
 
-```
+```swift
 extension UICollectionView {
-    
     func register<T: UICollectionViewCell>(_: T.Type) where T: Reusable {
         register(T.self, forCellWithReuseIdentifier: T.reuseIdentifier)
     }
@@ -79,10 +79,10 @@ extension UICollectionView {
 ```
 
 This leads to a greatly simplified call-site when both registering the cell type and consuming its instances:
-```
+```swift
 collectionView.register(MyCollectionViewCell.self)
 ```
-```
+```swift
 func collectionView(
 	_ collectionView: UICollectionView, 
     cellForItemAt indexPath: IndexPath
@@ -94,9 +94,8 @@ func collectionView(
 ```
 
 For most cases there's little need to manually specify the reuse identifier. We can rely on Swift's type information to supply this.
-```
+```swift
 extension Reusable {
-
     static var reuseIdentifier: String {
         return String(describing: type(of: self))
     }
@@ -105,7 +104,7 @@ extension Reusable {
 
 You may be wondering about that `fatalError` call in the new dequeue method. Whilst we can’t avoid the cell downcast it is now isolated to a single location rather than repeated in every `UICollectionViewDataSource` of our code-base. To actually eliminate the `fatalError` we must satisfying the method's return type. This can be achieved by instantiating a new cell type to indicate the error rather than halting the app. 
 
-```
+```swift
 func dequeueReusableCell<T: UICollectionViewCell>(for indexPath: IndexPath) -> T where T: Reusable {
     guard let cell = dequeueReusableCell(withReuseIdentifier: T.reuseIdentifier, for: indexPath) as? T else {
         return MyErrorCollectionViewCell(message: "Failed to dequeue cell: \(T.reuseIdentifier)"))
@@ -113,6 +112,3 @@ func dequeueReusableCell<T: UICollectionViewCell>(for indexPath: IndexPath) -> T
     return cell
 }
 ```
-
----
-*[Photo by Priscilla Fong on Unsplash]*
