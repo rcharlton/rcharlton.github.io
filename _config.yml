@@ -13,18 +13,18 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Branch Prediction
+title: Branch◦Prediction
 title_separator: "»"
 email: 
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Thoughts and ramblings about Swift, iOS developments and other things.
 twitter_username: robincharlton
 github_username: robincharlton
 minimal_mistakes_skin: "air" # "default", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum" "sunrise"
 search: true
 locale: "en-GB"
+url: "https://rcharlton.github.io"
+repository: "rcharlton/rcharlton.github.io"
 
 # Build settings
 markdown: kramdown
@@ -78,7 +78,7 @@ footer:
       url: "https://twitter.com/robincharlton"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
+      url: "https://github.com/rcharlton"
 
 defaults:
   # _posts
@@ -99,6 +99,7 @@ defaults:
     values:
       layout: single
       author_profile: true
+	  show_date: true
 
 category_archive:
   type: liquid
