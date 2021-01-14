@@ -24,7 +24,7 @@ I really enjoyed reading Erik D. Kennedy’s [post](https://medium.com/@erikdken
 
 He observes how darker colour variations have higher saturation and lower brightness. But if saturation and brightness are unchanged, shifting hue towards red, green or blue will decrease the luminosity, or perceived lightness of the colour. And shifting the hue towards yellow, cyan, or magenta will increase the perceived lightness of the colour.
 
-![Tree shadow image](/assets/images/posts/post-uicolor-transformed/jon-flobrant-229724-unsplash.jpg){:height="500px" width="400px"}
+![Tree shadow image](/assets/images/posts/post-uicolor-transformed/jon-flobrant-229724-unsplash.jpg){:height="500px" width="400px" caption: "Tree"}
 
 Photo by Jon Flobrant on Unsplash
 
@@ -102,8 +102,7 @@ let lighterTransform = UIColor.Transform(hue: -6, saturation: -0.2, brightness: 
 let lighterColor = baseColor.transformed(by: lighterTransform)
 ```
 
-###Example App
+### Example App
 The screenshot below is from a simple example app that replicates the illustrations in Erik’s article.
 ![](/assets/images/posts/post-uicolor-transformed/screenshot.png)
-
 The middle column is the base colour and automatically transformed lighter and variations are shown on either side. The latest version of this extension along with the full source code of the app is available [here](https://github.com/rcharlton/ColorTransform). 
