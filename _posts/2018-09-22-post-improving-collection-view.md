@@ -4,7 +4,7 @@ date: 2018-09-22T20:10:00+0000
 header:
   teaser: /assets/images/posts/priscilla-fong-83012-unsplash.jpg
   overlay_image: /assets/images/posts/post-improving-collection-view/priscilla-fong-83012-unsplash.jpg
-  overlay_filter: 0.3
+  overlay_filter: 0.5
   caption: "Photo by Priscilla Fong on [**Unsplash**](https://unsplash.com)"
 categories:
   - blog
@@ -19,8 +19,10 @@ Since `UICollectionView` arrived back in iOS 6.0 it’s become the workhorse of 
 
 Let’s look at a typical collection view example. First we register our cells:
 ```swift
-collectionView.register(MyCollectionViewCell.self, 
-                        forCellWithReuseIdentifier: "MyCollectionViewCellIdentifier")
+collectionView.register(
+    MyCollectionViewCell.self, 
+    forCellWithReuseIdentifier: "MyCollectionViewCellIdentifier"
+)
 ```
 
 ... and then consume those cells in the following data-source method:
@@ -33,12 +35,12 @@ func collectionView(
         withReuseIdentifier: "MyCollectionViewCellIdentifier", 
         for: indexPath
     ) as? MyCollectionViewCell else {
-	    fatalError("Gosh, this is embarressing 😭")
-	}
+        fatalError("Gosh, this is embarressing 😭")
+    }
 
-	cell.configure(with: myData(for: indexPath))
+    cell.configure(with: myData(for: indexPath))
 
-	return cell
+    return cell
 }
 ```
 
@@ -87,9 +89,9 @@ func collectionView(
 	_ collectionView: UICollectionView, 
     cellForItemAt indexPath: IndexPath
 ) -> UICollectionViewCell {
-	let cell: MyCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
-	cell.configure(with: myData(for: indexPath))
-	return cell
+    let cell: MyCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)
+    cell.configure(with: myData(for: indexPath))
+    return cell
 }
 ```
 
