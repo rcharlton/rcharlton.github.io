@@ -2,7 +2,7 @@
 title: "Improving Collection View Data Sources"
 date: 2018-09-22T20:10:00+0000
 header:
-  teaser: /assets/images/posts/priscilla-fong-83012-unsplash.jpg
+  teaser: /assets/images/posts/post-improving-collection-view/priscilla-fong-83012-unsplash.jpg
   overlay_image: /assets/images/posts/post-improving-collection-view/priscilla-fong-83012-unsplash.jpg
   overlay_filter: 0.5
   caption: "Photo by Priscilla Fong on [**Unsplash**](https://unsplash.com)"

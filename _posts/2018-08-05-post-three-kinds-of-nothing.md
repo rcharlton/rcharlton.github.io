@@ -5,7 +5,7 @@ excerpt: "nil, Void & Never"
 date: 2018-08-05T09:00:00+0000
 
 header:
-  teaser: /assets/images/posts/thierry-meier-218997-unsplash.jpg
+  teaser: /assets/images/posts/post-three-kinds-of-nothing/thierry-meier-218997-unsplash.jpg
   overlay_image: /assets/images/posts/post-three-kinds-of-nothing/thierry-meier-218997-unsplash.jpg
   overlay_filter: 0.5
   caption: "Photo by Thierry Meier on [**Unsplash**](https://unsplash.com)"
