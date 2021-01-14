@@ -16,14 +16,13 @@ categories:
 tags:
   - Swift
 
-classes: 
-	- wide
+classes: wide
 ---
 A few code-bases I’ve come across have used instance properties to hold constants, as follows.
 
 ```swift
 class LoginViewController: UIViewController {
-	private let headerSpace: CGFloat = 24
+    private let headerSpace: CGFloat = 24
 }
 ```
 
@@ -33,7 +32,7 @@ However this approach is problematic because it suggests that the value varies b
 
 ```swift
 class LoginViewController: UIViewController {
-	private static let headerSpace: CGFloat = 24
+    private static let headerSpace: CGFloat = 24
 }
 ```
 
@@ -43,9 +42,9 @@ A better approach is to embed the property within a case-less enum, as follows:
 
 ```swift
 class LoginViewController: UIViewController {
-	private enum LayoutMetric {
-		static let headerSpace: CGFloat = 24
-	}
+    private enum LayoutMetric {
+        static let headerSpace: CGFloat = 24
+    }
 }
 ```
 

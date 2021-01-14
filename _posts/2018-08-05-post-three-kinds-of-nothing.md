@@ -16,8 +16,7 @@ categories:
 tags:
   - Swift
 
-classes: 
-	- wide
+classes: wide
 ---
 A gem from Advanced Swift [objc.io](https://www.objc.io/books/advanced-swift/) (credited to David Smith on [Twitter](https://twitter.com/Catfish_Man/status/825080948555292672)) is the appreciation of Swift’s three representations of nothing. Although the language's syntactic shortcuts give us succinct code they sometimes mask the details and in doing so blunt our understanding of how things work. 
 
@@ -36,14 +35,14 @@ var aThing: Optional<Thing> = .none
 The Standard Library describes the type `Void` as *"the return type of functions that don’t explicitly specify a return type"*.  So we might deduce that functions and methods either return *something* or they return the *presence of nothing*:
 ```swift
 func f() -> String {
-	print("Shall we play a game?")
-	return "something"
+    print("Shall we play a game?")
+    return "something"
 }
 ```
 ```swift
 func f() -> Void {
-	print("Shall we play a game?")
-	return Void()
+    print("Shall we play a game?")
+    return Void()
 }
 ```
 
@@ -51,7 +50,7 @@ Or equivalently:
 
 ```swift
 func f() {
-	print("Shall we play a game?")
+    print("Shall we play a game?")
 }
 ```
 
@@ -70,8 +69,8 @@ public typealias Void = ()
 ````
 ```swift
 func f() -> () {	
-	print("Shall we play a game?")
-	return ()
+    print("Shall we play a game?")
+    return ()
 }
 ```
 
@@ -101,8 +100,8 @@ OK, perhaps we can declare a function that returns type `Never` and assign that?
 
 ```swift
 func f() -> Never {
-	print("Shall we play a game?")
-	// return ???
+    print("Shall we play a game?")
+    // return ???
 }
 ```
 
@@ -115,9 +114,9 @@ Swift gives the compilation error `Function with uninhabited return type 'Never'
 
 ```swift
 func f() -> Never {
-	fatalError("The only winning move is not to play")
+    fatalError("The only winning move is not to play")
 
-	// Execution does not continue.
+    / Execution does not continue.
 }
 ```
 

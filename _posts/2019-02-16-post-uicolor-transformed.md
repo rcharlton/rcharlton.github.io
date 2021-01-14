@@ -16,8 +16,7 @@ categories:
 tags:
   - UIKit
 
-classes: 
-	- wide
+classes: wide
 ---
 I really enjoyed reading Erik D. Kennedy’s [post](https://medium.com/@erikdkennedy/color-in-ui-design-a-practical-framework-e18cacd97f9e) on Color in UI Design. In it he discusses how the ability to modify one base colour into many variations is a fundamental skill in colouring interface designs. Erik examines colours in the real world and shows how hue, saturation and brightness vary in different lighting conditions.
 
