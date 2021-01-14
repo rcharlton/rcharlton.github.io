@@ -1,6 +1,10 @@
 ---
 title: "Improving Collection View Data Sources"
 date: 2018-09-22T20:10:00+0000
+header:
+  teaser: /assets/images/posts/priscilla-fong-83012-unsplash.jpg
+  overlay_image: /assets/images/posts/priscilla-fong-83012-unsplash.jpg
+  overlay_filter: 0.3
 categories:
   - blog
 tags:
@@ -8,9 +12,6 @@ tags:
   - iOS
   - tvOS
 ---
-
-![Photo by Priscilla Fong on Unsplash](assets/images/priscilla-fong-83012-unsplash.jpg)!
-
 Since `UICollectionView` arrived back in iOS 6.0 it’s become the workhorse of UI development. It can be seen everywhere rendering the dynamic content of the interweb’s feeds, lists and stories. Although capable the API suffers from that particular clunkiness that only an Objective-C Cocoa API can give 😆. This post presents a little syntactic sugar to improve the readability of our code and eliminate stupid programming mistakes.
 
 Let’s look at a typical collection view example. First we register our cells:
@@ -22,7 +23,7 @@ collectionView.register(MyCollectionViewCell.self,
 ... and then consume those cells in the following data-source method:
 ```
 func collectionView(
-	_ collectionView: UICollectionView, 
+    _ collectionView: UICollectionView, 
     cellForItemAt indexPath: IndexPath
 ) -> UICollectionViewCell {
 
