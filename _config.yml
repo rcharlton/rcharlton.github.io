@@ -20,7 +20,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Thoughts and ramblings about Swift, iOS developments and other things.
 twitter_username: robincharlton
 github_username: robincharlton
-minimal_mistakes_skin: "air" # "default", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum" "sunrise"
+minimal_mistakes_skin: "dark" # "default", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum" "sunrise"
 search: true
 locale: "en-GB"
 url: "https://rcharlton.github.io"
@@ -77,6 +77,9 @@ footer:
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "https://twitter.com/robincharlton"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/robincharlton"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/rcharlton"
@@ -88,9 +91,9 @@ defaults:
       type: posts
     values:
       layout: single
-      author_profile: true
+      author_profile: false
       read_time: true
-      comments: true
+      comments: false
       share: true
       related: true
   # _pages

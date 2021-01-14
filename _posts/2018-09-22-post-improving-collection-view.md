@@ -5,12 +5,14 @@ header:
   teaser: /assets/images/posts/priscilla-fong-83012-unsplash.jpg
   overlay_image: /assets/images/posts/priscilla-fong-83012-unsplash.jpg
   overlay_filter: 0.3
+  caption: "Photo by Priscilla Fong on [**Unsplash**](https://unsplash.com)"
 categories:
   - blog
 tags:
   - UIKit
   - iOS
   - tvOS
+classes: wide
 ---
 Since `UICollectionView` arrived back in iOS 6.0 it’s become the workhorse of UI development. It can be seen everywhere rendering the dynamic content of the interweb’s feeds, lists and stories. Although capable the API suffers from that particular clunkiness that only an Objective-C Cocoa API can give 😆. This post presents a little syntactic sugar to improve the readability of our code and eliminate stupid programming mistakes.
 
