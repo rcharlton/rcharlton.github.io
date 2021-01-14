@@ -2,7 +2,7 @@
 title: "UIColor + Transformed"
 excerpt: "Extension"
 
-date: 2018-08-06T09:00:00+0000
+date: 2010-02-16T09:00:00+0000
 
 header:
   teaser: /assets/images/posts/post-uicolor-transformed/russn_fckr-66974-unsplash.jpg
@@ -24,11 +24,11 @@ I really enjoyed reading Erik D. Kennedy’s [post](https://medium.com/@erikdken
 
 He observes how darker colour variations have higher saturation and lower brightness. But if saturation and brightness are unchanged, shifting hue towards red, green or blue will decrease the luminosity, or perceived lightness of the colour. And shifting the hue towards yellow, cyan, or magenta will increase the perceived lightness of the colour.
 
-![Tree shadow image](jon-flobrant-229724-unsplash.jpg){:height="500px" width="400px"}
+![Tree shadow image](/assets/images/posts/post-uicolor-transformed/jon-flobrant-229724-unsplash.jpg){:height="500px" width="400px"}
 
 Photo by Jon Flobrant on Unsplash
 
-![Door image](thanos-pal-1146444-unsplash.jpg){:height="500px" width="400px"}
+![Door image](/assets/images/posts/post-uicolor-transformed/thanos-pal-1146444-unsplash.jpg){:height="500px" width="400px"}
 
 Photo by Thanos Pal on Unsplash
 
@@ -36,7 +36,7 @@ Photo by Thanos Pal on Unsplash
 Armed with this knowledge it seems impossible to resist writing an extension on `UIColor` to encode this.
 
 ### UIColor+Transformed.swift
-```
+```swift
 extension UIColor {
 
     struct Transform {
@@ -92,7 +92,7 @@ private extension CGFloat {
 ```
 
 With this we can define some colour transformations and apply them to the base colours in our app's UI.
-```
+```swift
 let baseColor = UIColor(red: 0.2, green: 0.3, blue: 0.4)
 
 let darkerTransform = UIColor.Transform(hue: +6, saturation: +0.2, brightness: -0.3)
@@ -104,9 +104,6 @@ let lighterColor = baseColor.transformed(by: lighterTransform)
 
 ###Example App
 The screenshot below is from a simple example app that replicates the illustrations in Erik’s article.
-![](screenshot.png)
+![](/assets/images/posts/post-uicolor-transformed/screenshot.png)
 
 The middle column is the base colour and automatically transformed lighter and variations are shown on either side. The latest version of this extension along with the full source code of the app is available [here](https://github.com/rcharlton/ColorTransform). 
-
- ---
-*[Photo by russn_fckr on Unsplash]*

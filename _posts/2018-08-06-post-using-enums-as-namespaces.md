@@ -15,6 +15,7 @@ categories:
 
 tags:
   - Swift
+  - Syntactic Sugar
 
 classes: wide
 ---

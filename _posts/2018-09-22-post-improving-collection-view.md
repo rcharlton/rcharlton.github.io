@@ -1,19 +1,23 @@
 ---
 title: "Improving Collection View Data Sources"
+excerpt: "Syntactic Sugar"
+
 date: 2018-09-22T20:10:00+0000
+
 header:
   teaser: /assets/images/posts/post-improving-collection-view/priscilla-fong-83012-unsplash.jpg
   overlay_image: /assets/images/posts/post-improving-collection-view/priscilla-fong-83012-unsplash.jpg
   overlay_filter: 0.5
   caption: "Photo by Priscilla Fong on [**Unsplash**](https://unsplash.com)"
+
 categories:
   - blog
+
 tags:
   - UIKit
-  - iOS
-  - tvOS
+  - Syntactic Sugar
+
 classes: wide
-excerpt: "Syntactic Sugar"
 ---
 Since `UICollectionView` arrived back in iOS 6.0 it’s become the workhorse of UI development. It can be seen everywhere rendering the dynamic content of the interweb’s feeds, lists and stories. Although capable the API suffers from that particular clunkiness that only an Objective-C Cocoa API can give 😆. This post presents a little syntactic sugar to improve the readability of our code and eliminate stupid programming mistakes.
 
