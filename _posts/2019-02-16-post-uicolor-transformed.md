@@ -2,7 +2,7 @@
 title: "UIColor + Transformed"
 excerpt: "Extension"
 
-date: 2010-02-16T09:00:00+0000
+date: 2019-02-16T09:00:00+0000
 
 header:
   teaser: /assets/images/posts/post-uicolor-transformed/russn_fckr-66974-unsplash.jpg
@@ -66,9 +66,9 @@ extension UIColor {
         let phase = Int(6 * hsba[0])
         let hueDirection: CGFloat = ((phase % 2) == 0) ? 1.0 : -1.0
 
-        let hue = (hsba[0] + (hueDirection * transform.hue / 360)).clamped(min: 0, max: 1)
-        let saturation = (hsba[1] + transform.saturation).clamped(min: 0, max: 1)
-        let brightness = (hsba[2] + transform.brightness).clamped(min: 0, max: 1)
+        let hue = (hsba[0] + (hueDirection * transform.hue / 360)).clamped(to: 0...1)
+        let saturation = (hsba[1] + transform.saturation).clamped(to: 0...1)
+        let brightness = (hsba[2] + transform.brightness).clamped(to: 0...1)
 
         let result = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: hsba[3])
 
@@ -79,12 +79,10 @@ extension UIColor {
     }
 }
 
-private extension CGFloat {
+private extension Comparable {
 
-    func clamped(min: CGFloat, max: CGFloat) -> CGFloat {
-        guard self <= max else { return max }
-        guard min <= self else { return min }
-        return self
+    func clamped(to range: ClosedRange<Self>) -> Self {
+        return max(min(self, range.upperBound), range.lowerBound)
     }
 
 }
