@@ -1,5 +1,5 @@
 ---
-title: "Three Kinds of Nothin"
+title: "Three Kinds of Nothing"
 excerpt: "nil, Void & Never"
 
 date: 2018-08-05T09:00:00+0000

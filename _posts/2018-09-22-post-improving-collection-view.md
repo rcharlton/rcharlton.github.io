@@ -90,7 +90,7 @@ collectionView.register(MyCollectionViewCell.self)
 ```
 ```swift
 func collectionView(
-	_ collectionView: UICollectionView, 
+    _ collectionView: UICollectionView, 
     cellForItemAt indexPath: IndexPath
 ) -> UICollectionViewCell {
     let cell: MyCollectionViewCell = collectionView.dequeueReusableCell(for: indexPath)

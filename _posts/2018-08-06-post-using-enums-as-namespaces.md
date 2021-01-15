@@ -37,9 +37,9 @@ class LoginViewController: UIViewController {
 }
 ```
 
-This is less convenient to use since the property must be qualified with the classname when referenced within instance methods it , e.g. `LoginViewController.headerSpace`. I don’t know about you but I don’t usually need reminding what class I’m working in!
+This can then be referenced by qualifying the identifier with the classname or `Self`, e.g. `LoginViewController.headerSpace` or `Self.headerSpace`. 
 
-A better approach is to embed the property within a case-less enum, as follows:
+A nice alternative is to embed the property within a case-less enum, as follows:
 
 ```swift
 class LoginViewController: UIViewController {
@@ -53,4 +53,4 @@ Then the property can be referenced internally as `LayoutMetric.headerSpace`. Wi
 
 Using an enum in this way is similar to the `namespace` concept in C++ which provides a first class way of collecting together type names.
 
-An enum with no cases is known as an **uninhabited** type. It is a type that cannot be instantiated. As a result there’s no way a sleep deprived developer could start using LayoutMetric variables by mistake.
+In Swift an enum with no cases is known as an **uninhabited** type. It is a type that cannot be instantiated. As a result there’s no way a sleep deprived developer could start using LayoutMetric variables by mistake.
