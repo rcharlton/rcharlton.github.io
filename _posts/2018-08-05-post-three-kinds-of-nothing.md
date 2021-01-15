@@ -116,7 +116,7 @@ Swift gives the compilation error `Function with uninhabited return type 'Never'
 func f() -> Never {
     fatalError("The only winning move is not to play")
 
-    / Execution does not continue.
+    // Execution does not continue.
 }
 ```
 
